@@ -43,6 +43,7 @@ Secondly, Person.m
 }
 
 #pragma mark - NSCopying
+
 - (id)copyWithZone:(NSZone *)zone {
 	Person *copy = [[Person alloc] init];
 	copy.gender = self.gender;
