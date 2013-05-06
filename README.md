@@ -42,6 +42,15 @@ Secondly, Person.m
 	[super dealloc];
 }
 
+#pragma mark - NSCopying
+- (id)copyWithZone:(NSZone *)zone {
+	Person *copy = [[Person alloc] init];
+	copy.gender = self.gender;
+	copy.name = self.name;
+
+	return copy;
+}
+
 #pragma mark - Public
 
 - (BOOL)isEqualToPerson:(Person *)another {
