@@ -6,7 +6,7 @@ This is my Objective-C Style Guide. There will be more examples than talk!
 ## Quicklook
 =======================
 ### What should a Class looks like?
-Firstly, Person.h
+Person.h
 ```
 #import <Foundation/Foundation.h>
 
@@ -21,15 +21,15 @@ typdef enum {
 NSCopying
 >
 
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, assign) PersonGender gender;
+@property (nonatomic, copy)   NSString      *name;
+@property (nonatomic, assign) PersonGender  gender;
 
 - (BOOL)isEqualToPerson:(Person *)another;
 
 @end
 ```
 
-Secondly, Person.m
+Person.m
 ```
 #import "Person.h"
 
@@ -37,14 +37,16 @@ Secondly, Person.m
 
 #pragma mark - Memory
 
-- (void)dealloc {
+- (void)dealloc
+{
 	[_name release];
 	[super dealloc];
 }
 
 #pragma mark - NSCopying
 
-- (id)copyWithZone:(NSZone *)zone {
+- (id)copyWithZone:(NSZone *)zone
+{
 	Person *copy = [[Person alloc] init];
 	copy.gender = self.gender;
 	copy.name = self.name;
@@ -54,7 +56,8 @@ Secondly, Person.m
 
 #pragma mark - Public
 
-- (BOOL)isEqualToPerson:(Person *)another {
+- (BOOL)isEqualToPerson:(Person *)another
+{
 	if (self == _another)
 		return YES;
 
